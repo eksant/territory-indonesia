@@ -6,12 +6,12 @@ Territories of Indonesia
 
 ## Installation
 ```js
-$ npm install --save territories-indonesia
+$ npm install --save territory-indonesia
 ```
 
 ### Usage
 ```js
-import indonesia from 'territories-indonesia'
+import indonesia from 'territory-indonesia'
 
 // Get all provinces
 indonesia.getAllProvinces(function(res) {

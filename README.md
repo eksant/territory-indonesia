@@ -1,4 +1,4 @@
-# Territories Indonesia
+# Territory Indonesia
 Territories of Indonesia
 
 [![NPM Version](https://img.shields.io/npm/v/territory-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territory-indonesia)

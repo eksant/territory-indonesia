@@ -1,8 +1,8 @@
 # Territories Indonesia
 Territories of Indonesia
 
-[![NPM Version](https://img.shields.io/npm/v/territories-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territories-indonesia)
-[![NPM Downloads](https://img.shields.io/npm/dt/territories-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territories-indonesia)
+[![NPM Version](https://img.shields.io/npm/v/territory-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territory-indonesia)
+[![NPM Downloads](https://img.shields.io/npm/dt/territory-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territory-indonesia)
 
 ## Installation
 ```js

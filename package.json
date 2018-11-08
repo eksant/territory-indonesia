@@ -1,0 +1,24 @@
+{
+  "name": "territory-indonesia",
+  "version": "0.0.1",
+  "description": "Territories of Indonesia",
+  "main": "index.js",
+  "author": "eksant <eksoct@yahoo.com>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "indonesia",
+    "province",
+    "city",
+    "regency",
+    "eksa"
+  ],
+  "homepage": "https://github.com/eksant/territory-indonesia#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eksant/territory-indonesia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eksant/territory-indonesia/issues"
+  }
+}

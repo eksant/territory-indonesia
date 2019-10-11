@@ -1,9 +1,9 @@
 {
   "name": "territory-indonesia",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Territories of Indonesia",
   "main": "index.js",
-  "author": "eksant <eksoct@yahoo.com>",
+  "author": "eksa <eksant@gmail.com>",
   "license": "MIT",
   "private": false,
   "keywords": [
@@ -20,5 +20,13 @@
   },
   "bugs": {
     "url": "https://github.com/eksant/territory-indonesia/issues"
+  },
+  "scripts": {
+    "test": "nyc --reporter=text mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "nyc": "^14.1.1"
   }
 }

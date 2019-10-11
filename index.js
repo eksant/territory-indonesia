@@ -5,46 +5,177 @@ const regencyList = require('./data/list_of_area/regencies.json')
 const districtList = require('./data/list_of_area/districts.json')
 const villageList = require('./data/list_of_area/villages.json')
 
+function uCase(str) {
+  return str.replace(/\w\S*/g, txt => {
+    const exceptTxt = txt === 'DKI' || txt === 'DI' ? txt : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    return exceptTxt
+  })
+}
+
+function arrObj(arr) {
+  return Array.isArray(arr) ? arr[0] : arr
+}
+
 const indonesia = {
   // provinces
-  getAllProvinces: () => {
-    return provinceList
+  getAllProvinces: async () => {
+    const provinces = await provinceList.map(province => {
+      province.name = uCase(province.name)
+      return province
+    })
+    return provinces
   },
-  getProvinceById: id => {
-    return id ? provinceList.filter(province => province.id === id) : []
+  getProvinceById: async id => {
+    if (!id) return {}
+    const province = await provinceList.filter(province => province.id === id)
+    return arrObj(province)
+  },
+  getProvinceByName: async name => {
+    if (!name) return {}
+    const province = await provinceList.filter(province => province.name.toLowerCase() === name.toLowerCase())
+    return arrObj(province)
   },
 
   // regency
-  getAllRegencies: () => {
-    return regencyList
+  getAllRegencies: async () => {
+    const regencies = await regencyList.map(regency => {
+      regency.name = uCase(regency.name)
+      return regency
+    })
+    return regencies
   },
-  getRegencyById: id => {
-    return id ? regencyList.filter(regency => regency.id === id) : []
+  getRegencyById: async id => {
+    if (!id) return {}
+    const regency = await regencyList.filter(regency => regency.id === id)
+    return arrObj(regency)
   },
-  getRegenciesOfProvince: provinceId => {
-    return regencyList.filter(regency => regency.province_id === provinceId)
+  getRegencyByName: async name => {
+    if (!name) return {}
+    const regency = await regencyList.filter(regency => regency.name.toLowerCase() === name.toLowerCase())
+    return arrObj(regency)
+  },
+  getRegenciesOfProvince: async provinceId => {
+    if (!provinceId) return {}
+    const regencies = await regencyList
+      .filter(regency => regency.province_id === provinceId)
+      .map(regency => {
+        regency.name = uCase(regency.name)
+        return regency
+      })
+    return regencies
+  },
+  getRegenciesOfProvinceId: async provinceId => {
+    if (!provinceId) return {}
+    const regencies = await regencyList
+      .filter(regency => regency.province_id === provinceId)
+      .map(regency => {
+        regency.name = uCase(regency.name)
+        return regency
+      })
+    return regencies
+  },
+  getRegenciesOfProvinceName: async provinceName => {
+    if (!name) return {}
+    const regency = await regencyList.filter(regency => regency.name.toLowerCase() === provinceName.toLowerCase())
+    return arrObj(regency)
   },
 
   // district
-  getAllDistricts: () => {
-    return districtList
+  getAllDistricts: async () => {
+    const districts = await districtList.map(district => {
+      district.name = uCase(district.name)
+      return district
+    })
+    return districts
   },
-  getDistrictById: id => {
-    return id ? districtList.filter(district => district.id === id) : []
+  getDistrictById: async id => {
+    if (!id) return {}
+    const districts = await districtList.filter(district => district.id === id)
+    return arrObj(districts)
   },
-  getDistrictsOfRegency: regencyId => {
-    return districtList.filter(district => district.regency_id === regencyId)
+  getDistrictByName: async name => {
+    if (!name) return {}
+    const districts = await districtList.filter(district => district.name.toLowerCase() === name.toLowerCase())
+    return arrObj(districts)
+  },
+  getDistrictsOfRegency: async regencyId => {
+    if (!regencyId) return {}
+    const districts = await districtList
+      .filter(district => district.regency_id === regencyId)
+      .map(district => {
+        district.name = uCase(district.name)
+        return district
+      })
+    return districts
+  },
+  getDistrictsOfRegencyId: async regencyId => {
+    if (!regencyId) return {}
+    const districts = await districtList
+      .filter(district => district.regency_id === regencyId)
+      .map(district => {
+        district.name = uCase(district.name)
+        return district
+      })
+    return districts
+  },
+  getDistrictsOfRegencyName: async regencyName => {
+    if (!regencyName) return {}
+    const districts = await districtList
+      .filter(district => district.name === regencyName)
+      .map(district => {
+        district.name = uCase(district.name)
+        return district
+      })
+    return districts
   },
 
   // village
-  getAllVillages: () => {
-    return villageList
+  getAllVillages: async () => {
+    const villages = await villageList.map(village => {
+      village.name = uCase(village.name)
+      return village
+    })
+    return villages
   },
-  getVillageById: id => {
-    return id ? villageList.filter(village => village.id === id) : []
+  getVillageById: async id => {
+    if (!id) return {}
+    const villages = await villageList.filter(village => village.id === id)
+    return arrObj(villages)
   },
-  getVillagesOfDistrict: districtId => {
-    return villageList.filter(village => village.district_id === districtId)
+  getVillageByName: async name => {
+    if (!name) return {}
+    const villages = await villageList.filter(village => village.name.toLowerCase() === name.toLowerCase())
+    return arrObj(villages)
+  },
+  getVillagesOfDistrict: async districtId => {
+    if (!districtId) return {}
+    const villages = await villageList
+      .filter(village => village.district_id === districtId)
+      .map(village => {
+        village.name = uCase(village.name)
+        return village
+      })
+    return villages
+  },
+  getVillagesOfDistrictId: async districtId => {
+    if (!districtId) return {}
+    const villages = await villageList
+      .filter(village => village.district_id === districtId)
+      .map(village => {
+        village.name = uCase(village.name)
+        return village
+      })
+    return villages
+  },
+  getVillagesOfDistrictName: async districtName => {
+    if (!districtName) return {}
+    const villages = await villageList
+      .filter(village => village.name === districtName)
+      .map(village => {
+        village.name = uCase(village.name)
+        return village
+      })
+    return villages
   },
 }
 

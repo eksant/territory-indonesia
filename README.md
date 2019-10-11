@@ -1,15 +1,20 @@
 # Territory Indonesia
+
 Territories of Indonesia
 
 [![NPM Version](https://img.shields.io/npm/v/territory-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territory-indonesia)
 [![NPM Downloads](https://img.shields.io/npm/dt/territory-indonesia.svg?maxAge=2592000)](https://www.npmjs.com/package/territory-indonesia)
 
 ## Installation
-```js
-$ npm install --save territory-indonesia
+
+```bash
+$ npm install territory-indonesia
+or
+$ yarn add territory-indonesia
 ```
 
 ### Usage
+
 ```js
 import indonesia from 'territory-indonesia'
 
@@ -48,16 +53,21 @@ indonesia.getRegencyById(3171, function(res) {
   console.log(res)
 })
 
+// Get regencies by name
+indonesia.getRegencyByName(name, function(res) {
+  console.log(res)
+})
+
 // Get regency by provinceId
-indonesia.getRegenciesOfProvince(31, function(res) {
-  // {
+indonesia.getRegenciesOfProvinceId(31, function(res) {
+  // [{....}, {
   //   "id": "3171",
   //   "province_id": "31",
   //   "name": "KOTA JAKARTA SELATAN",
   //   "alt_name": "KOTA JAKARTA SELATAN",
   //   "latitude": -6.266,
   //   "longitude": 106.8135
-  // },
+  // }],
   console.log(res)
 })
 
@@ -79,8 +89,13 @@ indonesia.getDistrictById(3171090, function(res) {
   console.log(res)
 })
 
+// Get district by name
+indonesia.getDistrictByName('Tebet', function(res) {
+  console.log(res)
+})
+
 // Get district by regencyId
-indonesia.getDistrictsOfRegency(3171, function(res) {
+indonesia.getDistrictsOfRegencyId(3171, function(res) {
   // {
   //   "id": "3171090",
   //   "regency_id": "3171",
@@ -91,7 +106,28 @@ indonesia.getDistrictsOfRegency(3171, function(res) {
   // },
   console.log(res)
 })
+
+// Get all villages
+indonesia.getAllVillages(function(res) {
+  console.log(res)
+})
+
+// Get village by id
+indonesia.getVillageById(3171090002, function(res) {
+  console.log(res)
+})
+
+// Get village by name
+indonesia.getVillageByName('Tebet Barat', function(res) {
+  console.log(res)
+})
+
+// Get village by districtId
+indonesia.getVillagesOfDistrictId(3171090, function(res) {
+  console.log(res)
+})
 ```
 
 ## License
-MIT © [Seorang Eksa](http://www.seorangeksa.com)
+
+This project is licensed under [Eko Santoso](http://seorangeksa.com) License - see the [LICENSE](LICENSE) file for details

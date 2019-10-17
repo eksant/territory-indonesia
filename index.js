@@ -55,7 +55,7 @@ const indonesia = {
     return arrObj(regency)
   },
   getRegenciesOfProvince: async provinceId => {
-    if (!provinceId) return {}
+    if (!provinceId) return []
     const regencies = await regencyList
       .filter(regency => regency.province_id === provinceId)
       .map(regency => {
@@ -65,19 +65,12 @@ const indonesia = {
     return regencies
   },
   getRegenciesOfProvinceId: async provinceId => {
-    if (!provinceId) return {}
-    const regencies = await regencyList
-      .filter(regency => regency.province_id === provinceId)
-      .map(regency => {
-        regency.name = uCase(regency.name)
-        return regency
-      })
-    return regencies
+    return await indonesia.getRegenciesOfProvince(provinceId)
   },
   getRegenciesOfProvinceName: async provinceName => {
-    if (!name) return {}
-    const regency = await regencyList.filter(regency => regency.name.toLowerCase() === provinceName.toLowerCase())
-    return arrObj(regency)
+    if (!provinceName) return []
+    const province = await indonesia.getProvinceByName(provinceName)
+    return await indonesia.getRegenciesOfProvinceId(province.id)
   },
 
   // district
@@ -99,7 +92,7 @@ const indonesia = {
     return arrObj(districts)
   },
   getDistrictsOfRegency: async regencyId => {
-    if (!regencyId) return {}
+    if (!regencyId) return []
     const districts = await districtList
       .filter(district => district.regency_id === regencyId)
       .map(district => {
@@ -109,24 +102,12 @@ const indonesia = {
     return districts
   },
   getDistrictsOfRegencyId: async regencyId => {
-    if (!regencyId) return {}
-    const districts = await districtList
-      .filter(district => district.regency_id === regencyId)
-      .map(district => {
-        district.name = uCase(district.name)
-        return district
-      })
-    return districts
+    return await indonesia.getDistrictsOfRegency(regencyId)
   },
   getDistrictsOfRegencyName: async regencyName => {
-    if (!regencyName) return {}
-    const districts = await districtList
-      .filter(district => district.name === regencyName)
-      .map(district => {
-        district.name = uCase(district.name)
-        return district
-      })
-    return districts
+    if (!regencyName) return []
+    const regency = await indonesia.getRegencyByName(regencyName)
+    return await indonesia.getDistrictsOfRegencyId(regency.id)
   },
 
   // village
@@ -148,7 +129,7 @@ const indonesia = {
     return arrObj(villages)
   },
   getVillagesOfDistrict: async districtId => {
-    if (!districtId) return {}
+    if (!districtId) return []
     const villages = await villageList
       .filter(village => village.district_id === districtId)
       .map(village => {
@@ -158,24 +139,12 @@ const indonesia = {
     return villages
   },
   getVillagesOfDistrictId: async districtId => {
-    if (!districtId) return {}
-    const villages = await villageList
-      .filter(village => village.district_id === districtId)
-      .map(village => {
-        village.name = uCase(village.name)
-        return village
-      })
-    return villages
+    return await indonesia.getVillagesOfDistrict(districtId)
   },
   getVillagesOfDistrictName: async districtName => {
-    if (!districtName) return {}
-    const villages = await villageList
-      .filter(village => village.name === districtName)
-      .map(village => {
-        village.name = uCase(village.name)
-        return village
-      })
-    return villages
+    if (!districtName) return []
+    const district = await indonesia.getDistrictByName(districtName)
+    return await indonesia.getVillagesOfDistrictId(district.id)
   },
 }
 

@@ -50,6 +50,12 @@ describe('Teritory Indonesia', () => {
         .then(res => res.should.have.lengthOf(6))
         .catch(err => console.log(err))
     })
+    it('Should be have more than one regencies when filter by province name = DKI Jakarta', () => {
+      teritory
+        .getRegenciesOfProvinceName('DKI Jakarta')
+        .then(res => res.should.have.lengthOf(6))
+        .catch(err => console.log(err))
+    })
   })
 
   describe('3. Districts', () => {
@@ -77,6 +83,12 @@ describe('Teritory Indonesia', () => {
         .then(res => res.should.have.lengthOf(10))
         .catch(err => console.log(err))
     })
+    it('Should be have more than one regencies when filter by regency name = Kota Jakarta Selatan', () => {
+      teritory
+        .getDistrictsOfRegencyName('Kota Jakarta Selatan')
+        .then(res => res.should.have.lengthOf(10))
+        .catch(err => console.log(err))
+    })
   })
 
   describe('4. Villages', () => {
@@ -101,6 +113,12 @@ describe('Teritory Indonesia', () => {
     it('Should be have more than one villages when filter by district ID = 3171090', () => {
       teritory
         .getVillagesOfDistrictId('3171090')
+        .then(res => res.should.have.lengthOf(7))
+        .catch(err => console.log(err))
+    })
+    it('Should be have more than one villages when filter by district name = Tebet', () => {
+      teritory
+        .getVillagesOfDistrictName('Tebet')
         .then(res => res.should.have.lengthOf(7))
         .catch(err => console.log(err))
     })

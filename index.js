@@ -20,8 +20,7 @@ const indonesia = {
   // provinces
   getAllProvinces: async () => {
     const provinces = await provinceList.map(province => {
-      province.name = uCase(province.name)
-      return province
+      return {...province, name: uCase(province.name)};
     })
     return provinces
   },
@@ -39,8 +38,7 @@ const indonesia = {
   // regency
   getAllRegencies: async () => {
     const regencies = await regencyList.map(regency => {
-      regency.name = uCase(regency.name)
-      return regency
+      return {...regency, name: uCase(regency.name)};
     })
     return regencies
   },
@@ -59,8 +57,7 @@ const indonesia = {
     const regencies = await regencyList
       .filter(regency => regency.province_id === provinceId)
       .map(regency => {
-        regency.name = uCase(regency.name)
-        return regency
+        return {...regency, name: uCase(regency.name)};
       })
     return regencies
   },
@@ -76,8 +73,7 @@ const indonesia = {
   // district
   getAllDistricts: async () => {
     const districts = await districtList.map(district => {
-      district.name = uCase(district.name)
-      return district
+      return {...district, name: uCase(district.name)};
     })
     return districts
   },
@@ -96,8 +92,7 @@ const indonesia = {
     const districts = await districtList
       .filter(district => district.regency_id === regencyId)
       .map(district => {
-        district.name = uCase(district.name)
-        return district
+        return {...district, name: uCase(district.name)};
       })
     return districts
   },
@@ -113,8 +108,7 @@ const indonesia = {
   // village
   getAllVillages: async () => {
     const villages = await villageList.map(village => {
-      village.name = uCase(village.name)
-      return village
+      return {...village, name: uCase(village.name)};
     })
     return villages
   },
@@ -133,8 +127,7 @@ const indonesia = {
     const villages = await villageList
       .filter(village => village.district_id === districtId)
       .map(village => {
-        village.name = uCase(village.name)
-        return village
+        return {...village, name: uCase(village.name)};
       })
     return villages
   },

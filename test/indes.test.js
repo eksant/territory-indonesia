@@ -5,7 +5,7 @@ chai.should()
 
 describe('Teritory Indonesia', () => {
   describe('1. Provinces', () => {
-    it('Should be have more than one provinces', () => {
+    it('Should be have 34 provinces', () => {
       teritory
         .getAllProvinces()
         .then(res => res.should.have.lengthOf(34))

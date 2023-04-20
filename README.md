@@ -13,6 +13,14 @@ or
 $ yarn add territory-indonesia
 ```
 
+If you are using TypeScript, you can install the corresponding type definitions:
+
+```bash
+$ npm install --save-dev @types/territory-indonesia
+or
+$ yarn add --dev @types/territory-indonesia
+```
+
 ### Usage
 
 ```js
